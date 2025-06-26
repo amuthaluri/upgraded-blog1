@@ -1,0 +1,44 @@
+{% include "header.html" %}
+
+<!-- Page Header -->
+<header
+  class="masthead"
+  style="background-image: url('../static/assets/img/edit-bg.jpg')"
+>
+  <div class="container position-relative px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+      <div class="col-md-10 col-lg-8 col-xl-7">
+        <div class="page-heading">
+          <h1>{% if is_edit %}Edit Post{% else %}New Post{% endif %}</h1>
+          <span class="subheading">
+            {% if is_edit %}
+              Update your blog post below.
+            {% else %}
+              You're going to make a great blog post!
+            {% endif %}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="mb-4">
+  <div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+      <div class="col-md-10 col-lg-8 col-xl-7">
+        <form method="POST">
+          {{ form.hidden_tag() }}
+          {{ form.title.label }} {{ form.title(class="form-control mb-3") }}
+          {{ form.subtitle.label }} {{ form.subtitle(class="form-control mb-3") }}
+          {{ form.author.label }} {{ form.author(class="form-control mb-3") }}
+          {{ form.img_url.label }} {{ form.img_url(class="form-control mb-3") }}
+          {{ form.body.label }} {{ form.body(class="form-control mb-3") }}
+          {{ form.submit(class="btn btn-primary mt-3") }}
+        </form>
+      </div>
+    </div>
+  </div>
+</main>
+
+{% include "footer.html" %}
